@@ -18,7 +18,6 @@ jobs:
       run: 
         echo "$DOCKER_PASSWORD"
         echo "$DOCKER_USER"
-        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag i200615/A4_q1:latest
     - name: Docker push
