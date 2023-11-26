@@ -10,13 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: docker/build-push-action@v2
+    - uses: actions/checkout@v3
     - name: docker login
       env: 
         DOCKER_USER:  ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag i200615/assignment4_q1:latest
+      run: docker build . --file Dockerfile --tag i200615_assignment4/q1:latest
     - name: Docker push
-      run: docker push i200615/assignment4_q1:latest
+      run: docker push i200615_assignment4/q1:latest
